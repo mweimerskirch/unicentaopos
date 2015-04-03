@@ -22,4 +22,5 @@ DIRNAME=`dirname $0`
 CP=$DIRNAME/unicentaopos.jar
 CP=$CP:$DIRNAME/locales/
 CP=$CP:$DIRNAME/lib/substance.jar
+CP=$CP:$DIRNAME/dist/unicentapos.jar
 java -cp $CP -Dswing.defaultlaf=javax.swing.plaf.metal.MetalLookAndFeel com.openbravo.pos.config.JFrmConfig

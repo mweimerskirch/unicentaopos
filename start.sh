@@ -34,12 +34,16 @@ CP=$CP:$DIRNAME/lib/velocity-1.7-dep.jar
 CP=$CP:$DIRNAME/lib/oro-2.0.8.jar
 CP=$CP:$DIRNAME/lib/commons-collections-3.2.1.jar
 CP=$CP:$DIRNAME/lib/commons-lang-2.4.jar
+# Fix "java.lang.NoSuchFieldError: absoluteClassCache" by including the following
+CP=$CP:$DIRNAME/lib/bsh-2.1b5.jar
 CP=$CP:$DIRNAME/lib/bsh-core-2.0b4.jar
 CP=$CP:$DIRNAME/lib/RXTXcomm.jar
 CP=$CP:$DIRNAME/lib/jpos1121.jar
 CP=$CP:$DIRNAME/lib/swingx-all-1.6.4.jar
 CP=$CP:$DIRNAME/lib/substance.jar
 CP=$CP:$DIRNAME/lib/substance-swingx.jar
+# Includes missing classes (e.g. orgjdesktop/layout)
+CP=$CP:$DIRNAME/lib/*
 
 # Apache Axis SOAP libraries.
 CP=$CP:$DIRNAME/lib/axis.jar
@@ -50,6 +54,9 @@ CP=$CP:$DIRNAME/lib/commons-discovery-0.4.jar
 CP=$CP:$DIRNAME/lib/commons-logging-1.1.jar
 CP=$CP:$DIRNAME/locales/
 CP=$CP:$DIRNAME/reports/
+
+# Include main JAR
+CP=$CP:$DIRNAME/dist/unicentapos.jar
 
 # Select the library folder
 case "`uname -s`" in
