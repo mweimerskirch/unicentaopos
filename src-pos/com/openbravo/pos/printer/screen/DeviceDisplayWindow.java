@@ -22,6 +22,7 @@ package com.openbravo.pos.printer.screen;
 import com.openbravo.pos.forms.AppLocal;
 import com.openbravo.pos.printer.DeviceDisplay;
 import javax.swing.JComponent;
+import java.awt.*;
 
 /**
  *
@@ -41,7 +42,22 @@ public class DeviceDisplayWindow extends javax.swing.JFrame implements DeviceDis
         
         m_jContainer.add(m_display.getDisplayComponent());
         
+        // Hide the customer window border
+        this.setUndecorated(true);
+
+        // Move the customer window to the second screen (if available)
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice[] screens = ge.getScreenDevices();
+        if (1 < screens.length) {
+            this.setLocation(screens[1].getDefaultConfiguration().getBounds().x, this.getY());
+        } else if (screens.length > 0) {
+            this.setLocation(screens[0].getDefaultConfiguration().getBounds().x, this.getY());
+        }
+
         setVisible(true);
+
+        // Maximize the customer window
+        setExtendedState(MAXIMIZED_BOTH);
     }
     
     /**

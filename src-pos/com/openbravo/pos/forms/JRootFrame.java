@@ -47,7 +47,10 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
     /** Creates new form JRootFrame */
     public JRootFrame() {
         
-        initComponents();    
+        initComponents();
+
+        // Maximize the main window
+        setExtendedState(MAXIMIZED_BOTH);  
     }
     
     /**
